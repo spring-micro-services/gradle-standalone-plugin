@@ -1,0 +1,26 @@
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+group = 'com.tvajjala.gradle'
+version = '1.0.0'
+
+
+task wrapper(type: Wrapper){
+    doLast{
+        println 'Wrapper task executed'
+    }
+}
+
+dependencies{
+    //used to pull in Gradle API used by custom plugin and task classes.
+    compile gradleApi() 
+}
+
+uploadArchives{
+    repositories{
+        flatDir {dirs "libs"}
+    }
+}
+
+
+
